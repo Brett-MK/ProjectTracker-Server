@@ -1,5 +1,6 @@
 {
   "project_id": "",
   "private_key": "",
-  "client_email": ""
+  "client_email": "",
+  "db": "mongodb://localhost/taskTracker"
 }
