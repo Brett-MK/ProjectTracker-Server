@@ -1,3 +1,5 @@
 {
-  "jwtPrivateKey": "projectTracker_jwtPrivateKey"
+  "project_id": "PROJECTTRACKER_FIREBASE_PROJECT_ID",
+  "private_key": "PROJECTTRACKER_FIREBASE_PRIVATE_KEY",
+  "client_email": "PROJECTTRACKER_FIREBASE_CLIENT_EMAIL"
 }

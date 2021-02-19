@@ -1,3 +1,5 @@
 {
-  "jwtPrivateKey": ""
+  "project_id": "",
+  "private_key": "",
+  "client_email": ""
 }

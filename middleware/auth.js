@@ -4,10 +4,14 @@ const jwksRsa = require("jwks-rsa");
 const config = require("config");
 var admin = require("./admin");
 var admin = require("firebase-admin");
-var serviceAccount = require("../serviceAccountKey.json");
 
+console.log(config.get("private_key"));
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert({
+    projectId: config.get("project_id"),
+    private_key: config.get("private_key").replace(/\\n/g, "\n"),
+    client_email: config.get("client_email"),
+  }),
 });
 
 const getAuthToken = (req, res, next) => {
