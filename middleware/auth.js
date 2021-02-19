@@ -5,7 +5,6 @@ const config = require("config");
 var admin = require("./admin");
 var admin = require("firebase-admin");
 
-console.log(config.get("private_key"));
 admin.initializeApp({
   credential: admin.credential.cert({
     projectId: config.get("project_id"),
