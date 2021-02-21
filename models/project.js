@@ -17,7 +17,7 @@ function validateProject(task) {
     _id: Joi.objectId(),
     __v: Joi.number(),
     title: Joi.string().required(),
-    description: Joi.string(),
+    description: Joi.string().allow(""),
     tasks: Joi.array(),
     users: Joi.array(),
   });
