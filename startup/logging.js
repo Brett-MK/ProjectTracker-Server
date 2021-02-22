@@ -9,20 +9,10 @@ module.exports = function () {
 
   winston.exceptions.handle(
     new winston.transports.File({ filename: "logs/unhandledExceptions.log" }),
-    new winston.transports.Console({ format: winston.format.simple() }),
-    new winston.transports.MongoDB({
-      db: "mongodb://localhost/taskTracker",
-      options: { useUnifiedTopology: true },
-    })
+    new winston.transports.Console({ format: winston.format.simple() })
   );
 
   winston
     .add(new winston.transports.Console({ format: winston.format.simple() }))
-    .add(new winston.transports.File({ filename: "logs/logfile.log" }))
-    .add(
-      new winston.transports.MongoDB({
-        db: "mongodb://localhost/taskTracker",
-        options: { useUnifiedTopology: true },
-      })
-    );
+    .add(new winston.transports.File({ filename: "logs/logfile.log" }));
 };

@@ -1,8 +1,4 @@
-const jwt = require("express-jwt");
-const jwtAuthz = require("express-jwt-authz");
-const jwksRsa = require("jwks-rsa");
 const config = require("config");
-var admin = require("./admin");
 var admin = require("firebase-admin");
 
 admin.initializeApp({

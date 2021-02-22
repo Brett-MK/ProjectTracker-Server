@@ -4,20 +4,6 @@ const { Task, validateTask } = require("../models/task");
 const express = require("express");
 const router = express.Router();
 
-// router.get("/", auth, async (req, res) => {
-//   const tasks = await Project.find({ userId: req.user.sub });
-//   res.send(tasks);
-// });
-
-// router.get("/:id", auth, async (req, res) => {
-//   const task = await Task.findById(req.params.id);
-
-//   if (!task)
-//     return res.status(404).send("The task with the given ID was not found");
-
-//   res.send(task);
-// });
-
 router.post("/", auth, async (req, res) => {
   const { error } = validateTask(req.body.task);
   if (error) return res.status(400).send(error.details[0].message);
