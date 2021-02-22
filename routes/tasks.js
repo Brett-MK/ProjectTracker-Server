@@ -16,6 +16,7 @@ router.post("/", auth, async (req, res) => {
   task.priority = req.body.task.priority;
   task.assignedTo = req.body.task.assignedTo;
   task.status = req.body.task.status;
+  task.closedOn = "";
 
   project.tasks.push(task);
 
@@ -38,6 +39,10 @@ router.put("/:id", auth, async (req, res) => {
   project.tasks[taskIndex].priority = req.body.task.priority;
   project.tasks[taskIndex].assignedTo = req.body.task.assignedTo;
   project.tasks[taskIndex].status = req.body.task.status;
+
+  if (req.body.task.status === "Closed") {
+    project.tasks[taskIndex].closedOn = Date.now();
+  }
 
   await project.save();
   res.send({ task: project.tasks[taskIndex], projectId: req.body.projectId });
