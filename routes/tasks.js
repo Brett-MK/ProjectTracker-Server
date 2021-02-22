@@ -44,6 +44,10 @@ router.put("/:id", auth, async (req, res) => {
     project.tasks[taskIndex].closedOn = Date.now();
   }
 
+  if (req.body.task.status !== "Closed") {
+    project.tasks[taskIndex].closedOn = "";
+  }
+
   await project.save();
   res.send({ task: project.tasks[taskIndex], projectId: req.body.projectId });
 });
